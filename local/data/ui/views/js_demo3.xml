@@ -1,0 +1,33 @@
+<form script="dash3.js">
+  <label>JS_Demo3</label>
+  <fieldset submitButton="false">
+    <input type="dropdown" token="filter_ack">
+      <label>Filter Acknowledged</label>
+      <choice value="false">Non Acknowledged</choice>
+      <choice value="*">All</choice>
+      <default>*</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <table id="table1">
+        <search>
+          <query>index=_internal 
+| stats count by sourcetype
+| table sourcetype count acknowledge
+| lookup st_acknowledges.csv sourcetype OUTPUT _time as acknowledged
+| eval acknowledged=if(isnotnull(acknowledged),"True","False")
+| search acknowledged=$filter_ack$</query>
+          <earliest>-4h@m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+        <format type="color" field="acknowledged">
+          <colorPalette type="sharedList"></colorPalette>
+          <scale type="sharedCategory"></scale>
+        </format>
+      </table>
+    </panel>
+  </row>
+</form>

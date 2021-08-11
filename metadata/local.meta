@@ -1,0 +1,35 @@
+[app/ui]
+version = 8.1.1
+modtime = 1625516989.046904000
+
+[app/launcher]
+version = 8.1.1
+modtime = 1625516989.051759000
+
+[views/js_demo1]
+owner = admin
+version = 8.1.1
+modtime = 1625555112.859693000
+
+[views/js_demo2]
+access = read : [ * ], write : [ admin, power ]
+export = none
+owner = admin
+version = 8.1.1
+modtime = 1625521898.092009000
+
+[views/js_demo3]
+access = read : [ * ], write : [ admin, power ]
+export = none
+owner = admin
+version = 8.1.1
+modtime = 1626085036.413219000
+
+[views/js_demo4]
+owner = admin
+version = 8.1.1
+modtime = 1626459275.034175000
+
+[nav/default]
+version = 8.1.1
+modtime = 1626423747.208379000

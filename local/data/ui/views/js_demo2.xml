@@ -1,0 +1,25 @@
+<dashboard script="dash2.js">
+  <label>JS_Demo2</label>
+  <row>
+    <panel>
+      <html>
+        <div id="mydiv">
+          <button id="mybutton" class="btn btn-primary">MYBUTTON</button>
+        </div>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$show_panel$">
+      <table>
+        <search>
+          <query>| makeresults 
+| eval res="Success!"</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
+        <option name="refresh.display">progressbar</option>
+      </table>
+    </panel>
+  </row>
+</dashboard>
